@@ -8,6 +8,7 @@ import {
   signal,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ContactBotService } from '@core/services/contact-bot.service';
 import { ScrollSpyService } from '@core/services/scroll-spy.service';
 import { ThemeService } from '@core/services/theme.service';
 
@@ -23,7 +24,6 @@ const NAV_LINKS: NavLink[] = [
   { id: 'skills', label: 'Skills', anchor: '#skills' },
   { id: 'experience', label: 'Experiência', anchor: '#experience' },
   { id: 'projects', label: 'Projetos', anchor: '#projects' },
-  { id: 'contact', label: 'Contato', anchor: '#contact' },
 ];
 
 @Component({
@@ -88,7 +88,7 @@ const NAV_LINKS: NavLink[] = [
             }
           </button>
 
-          <a href="javascript:void(0)" (click)="openWhatsApp()" class="header__cta"> Contatar </a>
+          <a href="javascript:void(0)" (click)="openContactBot()" class="header__cta"> Contatar </a>
 
           <!-- Mobile hamburger -->
           <button
@@ -121,6 +121,7 @@ const NAV_LINKS: NavLink[] = [
 export class HeaderComponent implements OnInit {
   private readonly themeService = inject(ThemeService);
   private readonly scrollSpyService = inject(ScrollSpyService);
+  private readonly contactBotService = inject(ContactBotService);
 
   protected readonly navLinks = NAV_LINKS;
   protected readonly activeSection = this.scrollSpyService.activeSection;
@@ -154,8 +155,7 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  protected openWhatsApp(): void {
-    const message = 'Olá Allan! Vi o seu portfólio e gostaria de conversar.';
-    window.open(`https://wa.me/55119999333358?text=${encodeURIComponent(message)}`, '_blank');
+  protected openContactBot(): void {
+    this.contactBotService.open();
   }
 }
