@@ -32,7 +32,7 @@
   bottom: 100px;
   right: 24px;
   width: 340px;
-  z-index: 1000;
+  z-index: 1200;
   animation: slideUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-origin: bottom right;
 }
@@ -61,6 +61,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .sg-title {
@@ -232,6 +233,29 @@
   display: block;
 }
 
+.sg-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  z-index: 10;
+
+  &:active {
+    background: var(--secondary-accent);
+    transform: scale(0.9);
+  }
+}
+
 @media (max-width: 768px) {
   .show-mobile {
     display: block;
@@ -251,20 +275,25 @@
     width: 100vw;
     height: 100dvh;
     border-radius: 0;
-    padding: var(--space-2);
+    padding: var(--space-4);
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    background: var(--bg-secondary);
+    z-index: 2500; // Garantir que está acima de TUDO
 
     .sg-board {
-      flex: 1;
-      aspect-ratio: auto;
-      border: none;
-      border-radius: 0;
+      width: 90vw;
+      height: 90vw;
+      max-width: 500px;
+      max-height: 500px;
+      margin: var(--space-6) auto;
+      flex: none;
+      aspect-ratio: 1 / 1;
     }
 
     .sg-header {
-      padding: var(--space-4);
-      background: var(--bg-glass);
+      padding-block: var(--space-4);
     }
   }
 }
@@ -274,7 +303,7 @@
   bottom: var(--space-4);
   left: 50%;
   transform: translateX(-50%);
-  display: none; // Default hidden, shown only for desktop arrow keys help
+  display: none; // Default hidden for gesture mode
   flex-direction: column;
   align-items: center;
   gap: var(--space-1);
