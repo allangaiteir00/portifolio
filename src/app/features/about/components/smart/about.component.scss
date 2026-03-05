@@ -89,7 +89,7 @@
     p {
       color: var(--text-secondary);
       line-height: var(--leading-relaxed);
-      font-size: clamp(var(--text-sm), 1.1vw, var(--text-base));
+      font-size: clamp(var(--text-sm), 3.5vw, var(--text-base));
     }
 
     strong {
@@ -133,6 +133,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-4);
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
   }
 
   &__value-card {

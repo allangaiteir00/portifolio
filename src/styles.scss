@@ -107,6 +107,10 @@ img {
   @media (max-width: 768px) {
     padding-inline: var(--space-5);
   }
+
+  @media (max-width: 480px) {
+    padding-inline: var(--space-4);
+  }
 }
 
 .sr-only {
@@ -147,5 +151,9 @@ section {
 
   @media (max-width: 768px) {
     padding-block: var(--space-8);
+  }
+
+  @media (max-width: 480px) {
+    padding-block: var(--space-7);
   }
 }

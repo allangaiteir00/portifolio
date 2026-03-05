@@ -119,6 +119,11 @@
   --container-md: 768px;
   --container-lg: 1024px;
   --header-height: 72px;
+
+  // ─── Responsive Overrides ─────────────────────────────────────────────────
+  @media (max-width: 768px) {
+    --header-height: 60px;
+  }
 }
 
 // =============================================================================
