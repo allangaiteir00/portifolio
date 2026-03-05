@@ -27,7 +27,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
             </svg>
           </a>
           <a
-            href="https://github.com/AllanGaiteiro"
+            href="https://github.com/allangaiteir00"
             target="_blank"
             rel="noopener noreferrer"
             class="footer__link"
@@ -151,4 +151,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     `,
   ],
 })
-export class FooterComponent {}
+export class FooterComponent { }
